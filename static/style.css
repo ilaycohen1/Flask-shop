@@ -1,0 +1,102 @@
+
+body {
+    background-color:snow;
+}
+
+.adminNavbar {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin: auto;
+    border-radius: 8px;
+    background-color: aliceblue;
+    width: 300px;
+}
+
+.adminNavbar > .button {
+    background-color:azure;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.table {
+    margin: auto;
+    padding: 10px;
+}
+
+.tableHead {
+    background-color: bisque;
+}
+
+.tableBody {
+    background-color:blanchedalmond ;
+}
+
+.tableBody > td, th {
+    text-align: center;
+    padding: 5px;
+}
+
+.productsNavbar {
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.productFilter {
+    margin: 2px; 
+    padding: 5px; 
+    border-radius: 8px; 
+    display: flex; 
+    gap: 1vw; 
+    background-color: antiquewhite;
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.allProducts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;    
+    justify-content: center;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: beige;
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.nameImage {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageIncard {
+    margin: auto;
+}
+
+.imageIncard > .productImage {
+    height: 90px;
+    max-width: 100%;
+    margin: auto; 
+    justify-content: center;   
+
+}
+
+.cartImage {
+    width:20px;
+    height:20px;
+}

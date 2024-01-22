@@ -1,0 +1,25 @@
+{% extends "admin.html" %}
+{% block content %}
+    <table class="table">
+        <tr class="tableHead">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th></th>
+        </tr>
+    {% for user in users %}
+        <tr class="tableBody">
+            <td>{{ user.user_id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+            <td><button class="securedDetails" id="securedDetails{{ user.user_id }}" data-user-user_id="{{ user.user_id }}">Secured Details</button></td>
+        </tr>
+    {% endfor %}
+    </table>   
+{% endblock %}

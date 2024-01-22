@@ -1,0 +1,51 @@
+{% extends "admin.html" %}
+{% block content %}
+<script src="/static/products_manager.js" defer></script>
+<link rel="stylesheet" href="/static/style.css">
+
+
+<div class="productsNavbar">
+    
+    <button onclick="allProducts()" class="productFilter">All</button>
+
+<!-- // by category -->
+    <div class="productFilter">
+        <select name="category" plac id="category">
+            <option value="" disabled selected>Select Category</option>
+            {% for c in categories %}
+                <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}    
+        </select>
+        <button onclick="selectCategory()">Run</button>
+    </div>
+
+<!-- by brand -->
+    <div class="productFilter">
+        <select name="brand" id="brand">
+            <option value="" disabled selected>Select Brand</option>
+            {% for b in brands %}
+                <option value="{{ b }}">{{ b }}</option>
+            {% endfor %}    
+        </select>
+        <button onclick="selectBrand()">Run</button>
+    </div>
+    
+<!-- by price -->
+    <div class="productFilter" style="margin: 2px; padding: 5px; border-radius: 8px; display: flex; gap: 1vw; background-color: antiquewhite;">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+            <select name="price" id="priceOperator" style="width: fit-content;">
+                <option value="" disabled selected>Select Price</option>
+                {% for p in priceOperator %}
+                    <option value="{{ p }}">{{ p }}</option>
+                {% endfor %}    
+            </select>
+            <input type="text" name='priceInput' placeholder="Price" id="priceInput" style="width: 88px;">
+        </div>
+        <button onclick="selectPrice()"><input type="submit" style="display: none">Run</button>
+    </div>
+</div>
+
+<div class="products" id="products">
+
+</div>
+{% endblock %}

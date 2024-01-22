@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Name</title>
+</head>
+
+<script>
+    function forgotPass(){
+        if (document.getElementById("username").value === ""){
+            alert("Enter your username before clicking Forgot Password");
+            return;
+        }
+        fetch(`/forgotPassword/${document.getElementById("username").value}`).then(response => response.json()).then(data => {
+            console.log(data);
+            let answer = prompt(`${data.safety_question}`, `Your Answer`);
+            if (answer === null || answer === ""){
+                alert("Please type your answer")
+                return;
+            }
+            if (answer === `${data.safety_ans}`){
+                alert(`Your password is: ${data.password}`)
+                return;
+            }
+        })
+    }
+</script>
+
+<body>
+    <div class="signup" style="display: flex; gap: 5vw; ">
+        <p3>Don't Have A User?</p3>
+        <button class="signUpButton" id="signUpButton"><a href="/user/add">Sign Up Here</a></button>
+    </div>
+    <div class="signinform">
+        <p>Login Now!</p>
+        <form action="/login" method="post">
+            <input type="text" name="username" id="username" placeholder="Enter Username" required>
+            <input type="text" name="password" placeholder="Enter Password" required>
+            <input type="submit" name="submit" placeholder="Login">
+        </form>
+        <button onclick="forgotPass()">Forgot Password</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Name</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.3/axios.min.js"></script>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="navbar">
+            <button><a href="/logout">Logout</a></button>
+            <button><a href="/profile">My Profile</a></button>
+            <button><a href="/my_cart">My cart</a></button>
+        </div>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

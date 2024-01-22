@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App name</title>
+</head>
+
+<script>
+    function validateForm(){
+        if (!document.getElementById("email").value.includes("@")){
+            document.getElementById("email").style.backgroundColor="red";
+            alert("Invalid Email!!!");
+            return;
+        }
+        
+        document.getElementById("signUpForm").submit();
+    }
+</script>
+
+<body>
+<a href="/">Home</a>
+<div style="margin-top: 10%;">
+    <div style="display: flex; flex-direction: column;">
+    <div style="text-align: center; padding: 10px;">{{ message }}</div>
+    <form action="/user/add", method="POST", class="signUpForm", id="signUpForm" style="display: flex; gap: 10px; margin: auto; border: solid; justify-content: center; padding: 50px; width:max-content; background-color: beige;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+        <input type="text" name="user_id" placeholder="user_id" value="1" hidden>
+        <input type="text" name="name" placeholder="name" required>
+        <input type="text" name="last_name" placeholder="last_name"required>
+        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="password" placeholder="password" required>
+        </div><div style="display: flex; flex-direction: column; gap: 5px;">
+        <input type="text" name="email" placeholder="email" id="email" required>
+        <input type="text" name="address_id" placeholder="address_id" value="0" hidden>
+        <input type="text" name="safety_question" placeholder="safety_question" required>
+        <input type="text" name="safety_ans" placeholder="safety_ans" required>
+        </div>
+    </form>
+        <button style="width: fit-content; margin: auto; margin-top: 10px;" onclick="validateForm()" id="addButton">Add!</button>
+    </div>
+</div>
+</body>
+</html>
