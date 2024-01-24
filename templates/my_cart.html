@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="/static/products.js" defer></script>
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="cartProducts">
+    {% for product in products %}
+        <div class="row">
+            <div>
+                <img class="productImageCart" src="/static/images/{{ product.image }}" alt="Image">
+            </div>
+            <div style="display: flex; gap:5px; margin: 3px;">
+                <div>x{{ amounts[product.product_id] }}</div>
+                <div>{{ product.name }}</div>
+                <div>Brand: {{ product.brand }}</div>
+                <div>Price: {{ product.price }} USD$</div>
+                <div></div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div>Total price: {{ sum }} USD$</div>
+
+{% endblock %}

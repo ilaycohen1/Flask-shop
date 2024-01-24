@@ -153,9 +153,27 @@ def productByPrice(priceOperator, priceInput):
 
 @app.route('/cart/add/<productID>')
 def addToCart(productID):
-    cart = session["cart"]
+    if "cart" in session:
+        cart = list(session["cart"])
+    else:
+        cart = []
     cart.append(productID)
     session["cart"] = cart
     message = {"messageAdd" : "Added to cart"}
     return jsonify(message)
 
+@app.route('/my_cart')
+def myCart():
+    if "cart" in session:
+        productIds = list(session["cart"])
+        amounts = {}
+        
+        for id in productIds:
+            amounts[int(id)] =  productIds.count(id)
+        
+        products = [db.get_product_by_id(id) for id in set(productIds)]
+        sum = db.sumPrice(productIds)
+
+        return render_template("my_cart.html", products=products, sum=sum, amounts=amounts)
+    else:
+        return "Your Cart Is Empty"

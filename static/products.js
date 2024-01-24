@@ -39,20 +39,20 @@ function printProducts(products) {
     products.forEach(product => {
         html += 
                 `<div style="display: flex; flex-direction: column; gap:5px;">
-                <div class="product">
-                <div style="display: flex; flex-direction: column;  margin: 3px;">
-                <div><strong>Category:</strong> ${product.category}<br></div>
-                <div><strong>Brand:</strong> ${product.brand}<br></div>
-                <div><strong>Price:</strong> ${product.price} USD$<br></div>
-                <div><strong>Left In Stock:</strong> ${product.stock}<br></div>
-                <div><strong>Times Ordered:</strong> ${product.ordered}<br></div>
+                    <div class="product">
+                        <div style="display: flex; flex-direction: column;  margin: 3px;">
+                        <div><strong>Category:</strong> ${product.category}<br></div>
+                        <div><strong>Brand:</strong> ${product.brand}<br></div>
+                        <div><strong>Price:</strong> ${product.price} USD$<br></div>
+                        <div><strong>Left In Stock:</strong> ${product.stock}<br></div>
+                        <div><strong>Times Ordered:</strong> ${product.ordered}<br></div>
+                    </div>
+                        <div class="nameImage">
+                        <div style="margin: auto;"><strong>${product.name}</strong><br></div>
+                        <div class="imageIncard"><img class="productImage" src="/static/images/${product.image}" alt="Image"><br></div>
+                    </div>
                 </div>
-                <div class="nameImage">
-                <div style="margin: auto;"><strong>${product.name}</strong><br></div>
-                <div class="imageIncard"><img class="productImage" src="/static/images/${product.image}" alt="Image"><br></div>
-                </div>
-                </div>
-                <button style="margin: auto; text-align: center; width: 40px; height: 40px;" onclick="addToCart('${product.product_id}')"><img class="cartImage" src="/static/images/shopping-cart.png"></button>
+                    <button style="margin: auto; text-align: center; width: 40px; height: 40px;" onclick="addToCart('${product.product_id}')"><img class="cartImage" src="/static/images/shopping-cart.png"></button>
                 </div>`;
     });
     

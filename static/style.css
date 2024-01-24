@@ -100,3 +100,23 @@ body {
     width:20px;
     height:20px;
 }
+
+.productImageCart {
+    width:20px;
+    height:20px;
+}
+
+.row {
+    display: flex;
+    gap:5px;
+    background-color: blanchedalmond;
+    width: 400px;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.cartProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

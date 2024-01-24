@@ -227,3 +227,10 @@ def get_orders_by_product(product_name):
 def get_user_by_username(username):
     user = query(f"SELECT * FROM users WHERE username='{username}'")
     return listToDictUser(user)
+
+def sumPrice(productsIdsList):
+    sum = 0
+    for id in productsIdsList:
+        p = get_product_by_id(id)
+        sum += p.price
+    return sum
